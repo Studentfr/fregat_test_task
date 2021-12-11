@@ -104,6 +104,7 @@ class User(AbstractUser):
 
 class ParkingSpace(models.Model):
     name = models.CharField(max_length=500, default='Front side parking space')
+    is_booked_now = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

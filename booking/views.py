@@ -39,31 +39,31 @@ class UserDetailView(generics.RetrieveAPIView):
 
 
 class UserListView(generics.ListAPIView):
+    permission_classes = (IsAuthenticated,)
+    authentication_class = JWTAuthentication
     queryset = User.objects.all()
-    permission_classes = (AllowAny,)
     serializer_class = UserSerializer
-    authentication_class = None
 
 
 class ParkingSpaceView(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated,)
+    authentication_class = JWTAuthentication
     queryset = ParkingSpace.objects.all()
-    permission_classes = (AllowAny,)
     serializer_class = ParkingSpaceSerializer
-    authentication_class = None
 
 
 class ParkingSpaceDetailView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticated,)
+    authentication_class = JWTAuthentication
     queryset = ParkingSpace.objects.all()
-    permission_classes = (AllowAny,)
     serializer_class = ParkingSpaceSerializer
-    authentication_class = None
 
 
 class ReservationView(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated,)
+    authentication_class = JWTAuthentication
     queryset = Reservation.objects.all()
-    permission_classes = (AllowAny,)
     serializer_class = ReservationSerializer
-    authentication_class = None
 
     def post(self, request, *args, **kwargs):
         queryset = Reservation.objects.filter(start__lte=request.data['start'], end__gte=request.data['start'], parking_space=request.data['parking_space'])
@@ -80,9 +80,8 @@ class ReservationView(generics.ListCreateAPIView):
         return Response(serializer.data)
 
 
-
 class ReservationDetailView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticated,)
+    authentication_class = JWTAuthentication
     queryset = Reservation.objects.all()
-    permission_classes = (AllowAny,)
     serializer_class = ReservationSerializer
-    authentication_class = None
