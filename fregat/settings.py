@@ -14,6 +14,7 @@ from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import django_heroku
 from django.conf import settings
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +29,7 @@ SECRET_KEY = 'django-insecure-e46dbnuhq$yd-i3$ks*hptkxweuav6&t%2ym4!f2hfbfc(o0!d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fregat_test_task.herokuapp.com']
 
 
 # Application definition
@@ -86,13 +87,13 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'fregat',
+        'NAME': 'd7u20etajqq7n3',
 
-        'USER': 'postgres',
+        'USER': 'csnonezpitmsnx',
 
-        'HOST': 'localhost',
+        'HOST': 'ec2-54-170-163-224.eu-west-1.compute.amazonaws.com',
 
-        'PASSWORD': 'root',
+        'PASSWORD': '0d198ec128626575a15cff57d7a8cb2d131b75956204bdf9e3e15b71e1e1a5b4',
 
         'PORT': '5432',
     }
@@ -181,7 +182,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
