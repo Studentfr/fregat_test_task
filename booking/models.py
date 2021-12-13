@@ -99,7 +99,7 @@ class User(AbstractUser):
             'exp': dt.utcfromtimestamp(dt.timestamp())
         }, settings.SECRET_KEY, algorithm='HS256')
 
-        return token.decode('utf-8')
+        return token
 
 
 class ParkingSpace(models.Model):
