@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-e46dbnuhq$yd-i3$ks*hptkxweuav6&t%2ym4!f2hfbfc(o0!d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fregat_test_task.herokuapp.com']
+ALLOWED_HOSTS = ['fregat-test-task.herokuapp.com']
 
 
 # Application definition
